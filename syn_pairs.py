@@ -1,5 +1,5 @@
-from external.DEMorphy.demorphy.analyzer import Analyzer
-from external.DEMorphy.demorphy.cache import memoize, lrudecorator
+from demorphy import Analyzer
+from demorphy.cache import memoize, lrudecorator
 import pandas as pd
 import itertools
 from utils.syn_sem_pairs import remove_contradicting_pairs, write_word_pairs, read_stopwords, get_words_from_vocab
@@ -69,17 +69,6 @@ def num_features(groupkey):
 
 
 if __name__ == '__main__':
-    # rand = np.random.RandomState(1)
-    # df = pd.DataFrame({'A': ['foo', 'bar'] * 3,
-    #                    'B': rand.randn(6),
-    #                    'C': rand.randint(0, 20, 6)})
-    # gb = df.groupby(['A'])
-    # analyzer = Analyzer(char_subs_allowed=True)
-    # cache_size = 200  # you can arrange the size or unlimited cache. For German lang, we recommed 200 as cache size.
-    # cached = memoize if cache_size == "unlim" else (lrudecorator(cache_size) if cache_size else (lambda x: x))
-    # analyze = cached(analyzer.analyze)
-    # a = analyze("Wundervoll")
-    # print(a)
     # Load gensim model for vocab
     MIN_COUNT = 100
     #MODEL_PATH = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/fasttext/1819_emb_cleaned_v3_cased.model"
@@ -87,7 +76,7 @@ if __name__ == '__main__':
     STOPWORDS_PATH = "data/stopwords-de.txt"
     #STOPWORDS_PATH = "stopwords-de.txt"
     PAIR_SEPARATOR = " "
-    OUTPUT_DIR = "/ukp-storage-1/deboer/Language-change/german/embedding_change/syn_pairs_data"
+    OUTPUT_DIR = "/home/marcel/Schreibtisch"
 
     model = gensim.models.Word2Vec.load(MODEL_PATH)
     stopwords = read_stopwords(STOPWORDS_PATH)

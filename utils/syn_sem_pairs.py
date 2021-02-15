@@ -53,7 +53,7 @@ def read_stopwords(filepath):
 def get_words_from_vocab(gensim_model, min_count, stopwords, max_words=None):
     words = []
     for word in gensim_model.wv.vocab:
-        if max_words and len(words) > max_words:
+        if max_words and len(words) >= max_words:
             break
         if gensim_model.wv.vocab[word].count > min_count and word not in stopwords:
             words.append(word)

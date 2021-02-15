@@ -1,7 +1,7 @@
 import json
 import os
 import argparse
-from embedding_change.utils.similarity_measures import cosine_sim, dot_product_sim
+from utils.similarity_measures import cosine_sim, dot_product_sim
 
 
 def read_parsed_corpus(filepath):
