@@ -59,7 +59,9 @@ For example for the word **fliehen**:
 #### 2. Combinations of features for a word occur significantly more often in corpus A than in corpus B
 If a certain combination of features for a word e.g. ```Case=Dat|Gender=Fem|Number=Sing``` occurs significantly more/less often in corpus A than
 in corpus B. (See parameter **--min_occurrences_diff**)  
-For an example output check ```word_features_results/feature_diff.json```.
+For an example output check ```word_features_results/feature_diff.json```.  
+The *total occurrences are not taken into account right now* i.e. the counts are not normalized. It probably makes sense
+to normalize the counts by the total occurrences of a word in the respective corpus
 
 
 ## Word Embedding Based Approach
