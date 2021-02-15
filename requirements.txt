@@ -1,0 +1,4 @@
+gensim~=3.8.3
+pattern~=3.6
+pandas~=1.1.5
+trankit~=0.3.4

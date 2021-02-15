@@ -69,24 +69,21 @@ def num_features(groupkey):
 
 
 if __name__ == '__main__':
-    # Load gensim model for vocab
     MIN_COUNT = 100
-    #MODEL_PATH = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/fasttext/1819_emb_cleaned_v3_cased.model"
-    MODEL_PATH = "/home/marcel/Schreibtisch/gensim_sample/1819_emb_cleaned_v3_cased.model"
+    MODEL_PATH = "/home/marcel/Schreibtisch/gensim_sample/1819_emb_cleaned_v3_cased.model"  # gensim embedding model
     STOPWORDS_PATH = "data/stopwords-de.txt"
-    #STOPWORDS_PATH = "stopwords-de.txt"
     PAIR_SEPARATOR = " "
     OUTPUT_DIR = "/home/marcel/Schreibtisch"
 
+    # Load gensim model for vocab
     model = gensim.models.Word2Vec.load(MODEL_PATH)
     stopwords = read_stopwords(STOPWORDS_PATH)
 
     words = get_words_from_vocab(gensim_model=model, min_count=MIN_COUNT, stopwords=stopwords, max_words=2000)
     verb_pairs, adj_pairs, noun_pairs = build_word_pairs(words)
 
-    write_word_pairs(verb_pairs, os.path.join(OUTPUT_DIR, 'verb_pairs3'), sep=PAIR_SEPARATOR)
-    write_word_pairs(adj_pairs, os.path.join(OUTPUT_DIR, 'adj_pairs3'), sep=PAIR_SEPARATOR)
-    write_word_pairs(noun_pairs, os.path.join(OUTPUT_DIR, 'noun_pairs3'), sep=PAIR_SEPARATOR)
-    #TODO: how to run: download/install demorphy
+    write_word_pairs(verb_pairs, os.path.join(OUTPUT_DIR, 'verb_pairs'), sep=PAIR_SEPARATOR)
+    write_word_pairs(adj_pairs, os.path.join(OUTPUT_DIR, 'adj_pairs'), sep=PAIR_SEPARATOR)
+    write_word_pairs(noun_pairs, os.path.join(OUTPUT_DIR, 'noun_pairs'), sep=PAIR_SEPARATOR)
 
 

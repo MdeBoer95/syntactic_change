@@ -15,10 +15,8 @@ def build_word_pairs(words, keyed_vectors: gensim.models.KeyedVectors):
 
 if __name__ == '__main__':
     MIN_COUNT = 100
-    MODEL_PATH = "/home/marcel/Schreibtisch/gensim_sample/1819_emb_cleaned_v3_cased.model"
-    #MODEL_PATH = "/home/marcel/Work/Hiwi_aiphes/Language-change/german/embedding_change/1600-1700/word2vec.model"
+    MODEL_PATH = "/home/marcel/Schreibtisch/gensim_sample/1819_emb_cleaned_v3_cased.model"  # gensim embedding model
     STOPWORDS_PATH = "data/stopwords-de.txt"
-    #STOPWORDS_PATH = "stopwords-de.txt"
     PAIR_SEPARATOR = " "
     OUTPUT_DIR = "/home/marcel/Schreibtisch"
 
