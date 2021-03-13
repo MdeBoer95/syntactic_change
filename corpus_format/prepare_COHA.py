@@ -1,11 +1,13 @@
 import spacy
-from german.embedding_change.prepare_corpus import parse_paragraphs_nltk
+from corpus_format.prepare_corpus import parse_paragraphs_nltk
 from zipfile import ZipFile
 from tqdm import tqdm
 import os
 import logging
 
 logging.info()
+
+
 def load_sentencizer():
     """
     Create minimal spacy pipeline for rule based sentencizing

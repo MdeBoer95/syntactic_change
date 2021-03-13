@@ -162,17 +162,23 @@ def train_embeddings(corpusfile, save_model_to, method="word2vec", cleaning_dict
 
 
 if __name__ == '__main__':
-    i= 0
-    CORPUS_PATH = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/1800-1900.txt"
-    SAVE_MODEL_TO = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/fasttext/1819_emb_cleaned_v3_cased"
+    # Clean a corpus that is already in a format with one sentence per line
+    corpus = DTACorpusPrepared("/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/1600-1700.txt",
+                               cleaning_dict=NORMALIZED_CHARS_DTA)
+    corpus_cleaned = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/1600-1700_cleaned_v3_cased.txt"
+    if os.path.exists(corpus_cleaned):
+        raise Exception("File already exists. Delete it if you want to overwrite")
+    with open(corpus_cleaned, "w") as outfile:
+        for pre_processed_line in corpus:
+            outfile.write(" ".join(pre_processed_line))
+            outfile.write("\n")
 
-    train_embeddings(CORPUS_PATH, SAVE_MODEL_TO, 'fasttext', cleaning_dict=NORMALIZED_CHARS_DTA)
+    # Train embeddings on cleaned corpus
+    SAVE_MODEL_TO = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/fasttext/1819_emb_cleaned_v3_cased_dummy"
 
-    #model1617 = gensim.models.Word2Vec.load("/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/word2vec/1617_emb_cleaned_v2.model")
-    #model1819 = gensim.models.Word2Vec.load("/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/word2vec/1819_emb_cleaned_v2.model")
+    train_embeddings(corpus_cleaned, SAVE_MODEL_TO, 'fasttext', cleaning_dict=NORMALIZED_CHARS_DTA)
 
 
-    # #
     #create_dict(model1617, model1819, size=250)
 
 

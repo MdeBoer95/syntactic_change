@@ -8,12 +8,22 @@ pip install -r requirements.txt
 ```
 If you want to you create word pairs, install [DEMorphy](https://github.com/DuyguA/DEMorphy).
 
+## Data & Preprocessing
+- For analysing syntactical change only the dta corpus has been used so far. Data and embeddings can be found 
+  in ```/ukp-storage-1/deboer/Language-change/german/embedding_change``` in folders ```1600-1700``` and ```1800-1900```.
+  Latest versions of the data are suffixed with v3 and v3_cased. The cleaning involves gensims *simple_preprocess* function 
+  and some additional normalizations of special characters. See ```/utils/word2vec```.
+  The file also contains code to train fasttext and word2vec embeddings. 
+- Parlamentsdebatten does not contain enough tokens to train meaningful word embeddings if split into two corpora/epochs
+- The COHA data has been preprocessed but not analyzed yet. Preprocessed Data can be found under ```/ukp-storage-1/deboer/Language-change/german/embedding_change```
+
+Preprocessing the data also means that the format of the corpus will be rewritten into a format with one sentence per line before cleaning
+the relevant files are in the folder ```corpus_format```.
+
 ## Parser Based Approach
 This approach uses a linguistic parser (in our case [trankit](https://github.com/nlp-uoregon/trankit)) to determine syntactic change between two corpora. First the corpus is parsed
 and morphological features are extracted for each word (*per default for Nouns, Adjectives, Verbs and Auxiliary Verbs see parameter **--word_classes** in the scripts*). 
 Then the results of the parser are analyzed according to different criteria with the purpose of finding syntactic change between two corpora.
-
-
 
 ### Parsing the Corpus
 In order to determine morphological features of words in the corpus, a morphological parser ([trankit](https://github.com/nlp-uoregon/trankit)) is used. The resulting combinations of morphological features are then grouped and 
@@ -76,3 +86,24 @@ cased embeddings and write the resulting embeddings in word2vec format.
 
 For generating pairs of semantically/syntactically similar words, the scripts ```sem_pairs.py```/```syn_pairs.py```
 can be used.
+
+Once the syntactic embedding spaces have been created, the next step is to map the embeddings from two different epochs
+into one common embedding space. In order to do this we use [vecmap](https://github.com/artetxem/vecmap) in ```semi-supervised```
+mode.
+The same mapping can be done for a pair of semantic embedding spaces.
+The dictionary can be created with the function *create_dict* in ```utils/word2vec```
+
+In order to analyze the embedding spaces the script ```analyze_embeddings.py```.
+The global parameters are defined at the start of the main method and can be changed as required. 
+(Paths to embeddings, min count, etc.)
+
+The script outputs 3 files:
+
+1. The words with the largest syntactic change between two epochs (file: ...)
+2. Words the have changed semantically less than a certain threshold and syntactically more than a certain threshold. 
+   the threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)
+3. Two arbitrary words that fulfill the following criteria: (file: abr_syn_sem.txt)
+     - semantic similarity > sem_threshold
+     - |syntactic similariy| < syn_threshold
+     - word a is from epoch 1 and word b is from epoch 2
+
