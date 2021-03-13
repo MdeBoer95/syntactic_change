@@ -15,10 +15,10 @@ If you want to you create word pairs, install [DEMorphy](https://github.com/Duyg
   and some additional normalizations of special characters. See ```/utils/word2vec```.
   The file also contains code to train fasttext and word2vec embeddings. 
 - Parlamentsdebatten does not contain enough tokens to train meaningful word embeddings if split into two corpora/epochs
-- The COHA data has been preprocessed but not analyzed yet. Preprocessed Data can be found under ```/ukp-storage-1/deboer/Language-change/german/embedding_change```
+- The COHA data has been preprocessed but not analyzed yet. Preprocessed Data can be found in ```/ukp-storage-1/deboer/Language-change/german/embedding_change/COHA_gensim_preprocessed```
 
-Preprocessing the data also means that the format of the corpus will be rewritten into a format with one sentence per line before cleaning
-the relevant files are in the folder ```corpus_format```.
+Preprocessing the data also means that the format of the corpus will be rewritten into a format with one sentence per line before cleaning can be applied.
+The relevant files for this are in the folder ```corpus_format```.
 
 ## Parser Based Approach
 This approach uses a linguistic parser (in our case [trankit](https://github.com/nlp-uoregon/trankit)) to determine syntactic change between two corpora. First the corpus is parsed
