@@ -78,7 +78,7 @@ to normalize the counts by the total occurrences of a word in the respective cor
 In order to determine syntactic change with an embedding space we first have to create a syntactic embedding space.
 For this we use [attract-repel](https://github.com/nmrksic/attract-repel). 
 Attract-repel in its original form uses pairs of antonyms and synonyms to improve semantic embedding spaces by pushing antonyms further apart 
-and pulling synonyms closer together. Since we want to create a syntactic embedding space we want to use semantically 
+and pulling synonyms closer together. Since we want to create a syntactic embedding space, we want to use semantically 
 similar words as antonyms and syntactically similar words as synonyms.
 
 The directory ```external/``` contains a slightly modified version of the original attract repel code, that allows to use
@@ -91,7 +91,7 @@ Once the syntactic embedding spaces have been created, the next step is to map t
 into one common embedding space. In order to do this we use [vecmap](https://github.com/artetxem/vecmap) in ```semi-supervised```
 mode.
 The same mapping can be done for a pair of semantic embedding spaces.
-The dictionary can be created with the function *create_dict* in ```utils/word2vec```
+The dictionary required for vecmap can be created with the function *create_dict* in ```utils/word2vec```
 
 In order to analyze the embedding spaces the script ```analyze_embeddings.py``` is used.
 The global parameters are defined at the start of the main method and can be changed as required. 
@@ -103,12 +103,12 @@ The script outputs 3 files:
 (examples can be found in the folder ```analyze_embeddings_outputs_expl```)
 
 1. The n syntactically most changed words between two epochs. The output file excludes words that are shorter than MIN_LENGTH.
-    n defaults to 50. (file: biggest_change.txt)
-   The output shows the word and its nearest neighbours in the *RESULT_SPACE* in both epochs (1600 = 1600-1700, 1800=1800-1900).
-   So the list after *Word:waitz (1600)* shows the NNs of the word's representation/vector in epoch 1600, and the list after
+    n defaults to 50. (file: biggest_change.txt)  
+    The output shows the word and its nearest neighbours in the *RESULT_SPACE* in both epochs (1600 = 1600-1700, 1800=1800-1900).
+   For example the list after *Word:waitz (1600)* (see example output)shows the NNs of the word's representation/vector in epoch 1600, and the list after
    *Word:waitz (1800)* shows the NNs of the word's representation/vector in epoch 1800.
-2. Words the have changed semantically less than a certain threshold and syntactically more than a certain threshold. 
-   The threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)
+2. Words that have changed semantically less than a certain threshold and syntactically more than a certain threshold. 
+   The threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)  
    The output has the same format as in **1.**
 3. Two arbitrary words that fulfill the following criteria: (file: abr_syn_sem.txt)
      - semantic similarity > sem_threshold
@@ -116,7 +116,7 @@ The script outputs 3 files:
      - word a is from epoch 1 and word b is from epoch 2
     
     This function (*find_abitrary_words_with_similarity*) can take very long to run. So it might make sense to break the for loop after a
-    certain number of words has been found. (Currently ~ 20)
+    certain number of words has been found. (Currently ~ 20)  
     The output file shows the word pairs as *word a* and *word b* together with the nearest neighbours in the *RESULTS_SPACE*.
        
     
