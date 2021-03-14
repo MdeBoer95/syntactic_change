@@ -105,7 +105,7 @@ The script outputs 3 files:
 1. The n syntactically most changed words between two epochs. The output file excludes words that are shorter than MIN_LENGTH.
     n defaults to 50. (file: biggest_change.txt)  
     The output shows the word and its nearest neighbours in the *RESULT_SPACE* in both epochs (1600 = 1600-1700, 1800=1800-1900).
-   For example the list after *Word:waitz (1600)* (see example output)shows the NNs of the word's representation/vector in epoch 1600, and the list after
+   For example the list after *Word:waitz (1600)* (see example output) shows the NNs of the word's representation/vector in epoch 1600, and the list after
    *Word:waitz (1800)* shows the NNs of the word's representation/vector in epoch 1800.
 2. Words that have changed semantically less than a certain threshold and syntactically more than a certain threshold. 
    The threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)  
