@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import warnings
 from gensim.models import Word2Vec
-from german.embedding_change.word2vec import EpochLogger
+from utils.word2vec import EpochLogger
 warnings.filterwarnings("error")
 
 
