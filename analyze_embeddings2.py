@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import warnings
 from gensim.models import Word2Vec
-from utils.word2vec import EpochLogger
+from german.embedding_change.word2vec import EpochLogger
 warnings.filterwarnings("error")
 
 
@@ -131,9 +131,6 @@ def syntactic_semantic_change(syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2
             syntactic_similarity = cosine_sim(syn_emb_ep1[word], syn_emb_ep2[word].reshape(1, 100))[0]
             semantic_similarity = cosine_sim(sem_emb_ep1[word], sem_emb_ep2[word].reshape(1, 100))[0]
             if syntactic_similarity < syn_threshold and semantic_similarity > sem_threshold:
-                print(word)
-                print(syntactic_similarity)
-                print(semantic_similarity)
                 similarities_differences.append(word)
     return similarities_differences
 
@@ -142,17 +139,32 @@ def find_abitrary_words_with_similarity(syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, s
     similarities_differences_words = []
     cosine_sim = syn_emb_ep1.cosine_similarities
     for word in syn_emb_ep1.vocab:
-        if len(similarities_differences_words) > 5:
-            break
         if is_in_all_vocabs(word, [syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2]):
             syn_similarities = cosine_sim(syn_emb_ep1[word], syn_emb_ep2.vectors)
-            # Get the indices where the similarities fulfill a certain condition
-            indx = np.transpose(np.nonzero(syn_similarities >= syn_threshold))
-            for id in indx:
-                other_word = syn_emb_ep2.vocab[id]
-                sem_similarity = cosine_sim(sem_emb_ep1[word], sem_emb_ep2[other_word].reshape(1, 100))[0]
-                if abs(sem_similarity) > sem_threshold:
-                    similarities_differences_words.append((word, other_word))
+            # Get the indices where the similarities fulfill the condition in syntactic space
+            indx = np.transpose(np.nonzero(np.abs(syn_similarities) <= syn_threshold))
+            for id in indx.flatten():
+                other_word = syn_emb_ep2.index2word[id]
+                if is_in_all_vocabs(other_word, [syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2]):
+                    sem_similarity = cosine_sim(sem_emb_ep1[word], sem_emb_ep2[other_word].reshape(1, 100))[0]
+                    if sem_similarity > sem_threshold:
+                        similarities_differences_words.append((word, other_word))
+
+    return similarities_differences_words
+
+def find_abitrary_words_with_similarity2(syntactic_embeddings_epoch1, syntactic_embeddings_epoch2, semantic_embeddings_epoch1, semantic_embeddings_epoch2):
+    similarities_differences_words = []
+    cosine_sim = syntactic_embeddings_epoch1.cosine_similarities
+    for word in syntactic_embeddings_epoch1.vocab:
+        if word in syntactic_embeddings_epoch2.vocab and word in semantic_embeddings_epoch1.vocab and word in semantic_embeddings_epoch2.vocab:
+                for other_word in syntactic_embeddings_epoch2.vocab:
+                    if other_word in syntactic_embeddings_epoch1.vocab and other_word in semantic_embeddings_epoch1.vocab and other_word in semantic_embeddings_epoch2.vocab:
+                            syntactic_similarity = \
+                            cosine_sim(syntactic_embeddings_epoch1[word], syntactic_embeddings_epoch2[other_word].reshape(1, 100))[0]
+                            semantic_similarity = \
+                            cosine_sim(semantic_embeddings_epoch1[word], semantic_embeddings_epoch2[other_word].reshape(1, 100))[0]
+                            if abs(syntactic_similarity) < 0.3 and semantic_similarity > 0.5:
+                                similarities_differences_words.append((word, other_word))
 
     return similarities_differences_words
 
@@ -168,29 +180,28 @@ def load_word_counts(gensim_model_path, syn_kv, sem_kv):
 if __name__ == '__main__':
     DO_PCA_PLOTS = False
     RESULTS_SPACE = 'syn'  # either 'syn' or 'sem'
-    MIN_COUNT = 15
+    MIN_COUNT = 75
     MIN_LENGTH = 4
 
     # Load Syntactic Embeddings
     syn_path_epoch1617 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/wang2vec/1617_emb_cleaned_v2_largedict_mapped.txt"
     syn_emb1617 = KeyedVectors.load_word2vec_format(syn_path_epoch1617, binary=False)
-    syn_path_epoch1819 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/attract-repel-master/results/final_vectors_w2v.txt"
+    syn_path_epoch1819 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/wang2vec/1819_emb_cleaned_v2_largedict_mapped.txt"
     syn_emb1819 = KeyedVectors.load_word2vec_format(syn_path_epoch1819, binary=False)
 
     # Load Semantic Embeddings
     sem_path_epoch1617 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/word2vec/1617_emb_cleaned_v2_largedict_mapped.txt"
     sem_emb1617 = KeyedVectors.load_word2vec_format(sem_path_epoch1617, binary=False)
-    sem_path_epoch1819 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/fasttext/1819_emb_cleaned_v3_cased.txt"
+    sem_path_epoch1819 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/word2vec/1819_emb_cleaned_v2_largedict_mapped.txt"
     sem_emb1819 = KeyedVectors.load_word2vec_format(sem_path_epoch1819, binary=False)
 
     load_word_counts(sem_path_epoch1617.replace('_largedict_mapped.txt', '.model'), syn_emb1617, sem_emb1617)
-    load_word_counts(sem_path_epoch1819.replace('.txt', '.model'), syn_emb1819, sem_emb1819)
+    load_word_counts(sem_path_epoch1819.replace('_largedict_mapped.txt', '.model'), syn_emb1819, sem_emb1819)
 
     syn_emb1617 = filter_by_mincount(syn_emb1617, MIN_COUNT)
     syn_emb1819 = filter_by_mincount(syn_emb1819, MIN_COUNT)
     sem_emb1617 = filter_by_mincount(sem_emb1617, MIN_COUNT)
     sem_emb1819 = filter_by_mincount(sem_emb1819, MIN_COUNT)
-
 
     if RESULTS_SPACE == 'sem':
         combined_embeddings = merge_mapped_embeddings2([sem_emb1617, sem_emb1819], modifiers=[" (1600)", " (1800)"])
@@ -199,21 +210,26 @@ if __name__ == '__main__':
     else:
         raise ValueError("RESULTS_SPACE must be either \'syn\' or \'sem\'")
 
-
     changed_words = biggest_change_words(syn_emb1617, syn_emb1819)
 
-    changed_words_sym_sem = syntactic_semantic_change(syn_emb1617, syn_emb1819, sem_emb1617, sem_emb1819)
-
-    with open('syn_sem_change.txt') as f:
+    with open('/home/marcel/Schreibtisch/biggest_change.txt', 'w') as f:
         for word in changed_words:
             if len(word) >= MIN_LENGTH:
                 f.write(word + '\n')
                 f.write(plot_word_combined(word, combined_embeddings, None, modifiers=[" (1600)", " (1800)"]))
 
+    changed_words_sym_sem = syntactic_semantic_change(syn_emb1617, syn_emb1819, sem_emb1617, sem_emb1819,
+                                                      syn_threshold=0.3, sem_threshold=0.5)
 
-    words_ab = find_abitrary_words_with_similarity(syn_emb1617, syn_emb1819, sem_emb1617, sem_emb1819)
+    with open('/home/marcel/Schreibtisch/syn_sem_change.txt', 'w') as f:
+        for word in changed_words_sym_sem:
+            if len(word) >= MIN_LENGTH:
+                f.write(word + '\n')
+                f.write(plot_word_combined(word, combined_embeddings, None, modifiers=[" (1600)", " (1800)"]))
 
-    with open("abr_syn_sem.txt", 'w') as f:
+    words_ab = find_abitrary_words_with_similarity(syn_emb1617, syn_emb1819, sem_emb1617, sem_emb1819, sem_threshold=0.5, syn_threshold=0.5)
+
+    with open("/home/marcel/Schreibtisch/abr_syn_sem.txt", 'w') as f:
         for word_a, word_b in words_ab:
             f.write("word A: " + word_a + '\n')
             f.write("NNs" + str(combined_embeddings.most_similar(positive=[word_a + " (1600)"], topn=10)) + '\n')
