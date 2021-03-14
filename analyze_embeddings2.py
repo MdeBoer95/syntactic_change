@@ -105,6 +105,11 @@ def filter_by_mincount(embeddings: KeyedVectors, min_count):
 
 
 def biggest_change_words(embeddings_epoch1, embeddings_epoch2, num_words=50):
+    """
+    Sort words by the cosine similarity of their embeddings between the two given epochs.
+    cosine_sim(emb_ep1[word], emb_ep2[word]). Return the top num_words words.
+    :return: num_words words with the biggest change i.e. smallest cosine similarity
+    """
     similarities = {}
     cosine_sim = embeddings_epoch1.cosine_similarities
     for word in embeddings_epoch1.vocab:
@@ -124,6 +129,11 @@ def is_in_all_vocabs(word, listofkv):
 
 
 def syntactic_semantic_change(syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2, syn_threshold, sem_threshold):
+    """
+    Find words that have changed semantically more than sem_threshold and syntactically less than sem_threshold. Change
+    means the cosine similarity between the word's vector in epoch 1 and epoch 2.
+    :return: list of words that fulfill the criteria
+    """
     similarities_differences = []
     cosine_sim = syn_emb_ep1.cosine_similarities
     for word in syn_emb_ep1.vocab:
@@ -136,6 +146,11 @@ def syntactic_semantic_change(syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2
 
 
 def find_abitrary_words_with_similarity(syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2, syn_threshold, sem_threshold):
+    """
+    Find pairs of words a,b where a is from epoch 1, b is from epoch 2, the |syntactic similarity| is < syn_threshold
+    and the semantic similarity is larger than sem_threshold
+    :return: list of words that fulfill the criteria
+    """
     similarities_differences_words = []
     cosine_sim = syn_emb_ep1.cosine_similarities
     for word in syn_emb_ep1.vocab:
