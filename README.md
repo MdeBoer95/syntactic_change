@@ -93,35 +93,39 @@ mode.
 The same mapping can be done for a pair of semantic embedding spaces.
 The dictionary can be created with the function *create_dict* in ```utils/word2vec```
 
-In order to analyze the embedding spaces the script ```analyze_embeddings.py```.
+In order to analyze the embedding spaces the script ```analyze_embeddings.py``` is used.
 The global parameters are defined at the start of the main method and can be changed as required. 
 (Paths to embeddings, min count, etc.)
-The parameter *RESULTS_SPACE* whether the outputs will be in semantic or in syntatic space.
+The parameter *RESULTS_SPACE* determines whether the outputs will be in semantic or in syntatic space.
 
 The script outputs 3 files:
 
 (examples can be found in the folder ```analyze_embeddings_outputs_expl```)
 
-1. The n syntactically most changed words between two epochs.The output file excludes words that are shorter than MIN_LENGTH
-   n defaults to 50. (file: biggest_change.txt)
-   The output shows the word and its nearest neighbours in the *RESULT_SPACE* in both epochs (1600 = 1600-1700, 1800=1800-1900)
+1. The n syntactically most changed words between two epochs. The output file excludes words that are shorter than MIN_LENGTH.
+    n defaults to 50. (file: biggest_change.txt)
+   The output shows the word and its nearest neighbours in the *RESULT_SPACE* in both epochs (1600 = 1600-1700, 1800=1800-1900).
+   So the list after *Word:waitz (1600)* shows the NNs of the word's representation/vector in epoch 1600, and the list after
+   *Word:waitz (1800)* shows the NNs of the word's representation/vector in epoch 1800.
 2. Words the have changed semantically less than a certain threshold and syntactically more than a certain threshold. 
-   the threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)
+   The threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)
    The output has the same format as in **1.**
 3. Two arbitrary words that fulfill the following criteria: (file: abr_syn_sem.txt)
      - semantic similarity > sem_threshold
      - |syntactic similariy| < syn_threshold
      - word a is from epoch 1 and word b is from epoch 2
     
-    This function (*find_abitrary_words_with_similarity*) can take very long to run. So it might make break the for loop after a
+    This function (*find_abitrary_words_with_similarity*) can take very long to run. So it might make sense to break the for loop after a
     certain number of words has been found. (Currently ~ 20)
+    The output file shows the word pairs as *word a* and *word b* together with the nearest neighbours in the *RESULTS_SPACE*.
        
     
 ## Test for Syntactic Word Embeddings
 A test for syntactic word embeddings can be run with the file ```analogy_test.txt```.
+
 For example:
 ```commandline
 python analogy_test.py /storage/nllg/compute-share/deboer/melvin/language_change/Language-change/german/embedding_change/1600-1700/word2vec/1617_emb_cleaned_mapped.txt 
 ```
-The test also produces an output file named *analogy_test.txt* to show which tests failed. Delete or rename the file is you run the test multiple
+The test also produces an output file named *analogy_test.txt* to show which tests have failed. Delete or rename the file if you run the test multiple
 times, otherwise the test will append more output to the same file.
