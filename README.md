@@ -111,7 +111,11 @@ The script outputs 3 files:
 3. Two arbitrary words that fulfill the following criteria: (file: abr_syn_sem.txt)
      - semantic similarity > sem_threshold
      - |syntactic similariy| < syn_threshold
-     - word a is from epoch 1 and word b is from epoch 2
+     - word a is from epoch 1 and word b is from epoch 2find_abitrary_words_with_similarity
+    
+    This function (*find_abitrary_words_with_similarity*) can take very long to run. So it might make break the for loop after a
+    certain number of words has been found. (Currently ~ 20)
+       
     
 ## Test for Syntactic Word Embeddings
 A test for syntactic word embeddings can be run with the file ```analogy_test.txt```.

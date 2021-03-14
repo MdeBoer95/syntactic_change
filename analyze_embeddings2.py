@@ -139,6 +139,8 @@ def find_abitrary_words_with_similarity(syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, s
     similarities_differences_words = []
     cosine_sim = syn_emb_ep1.cosine_similarities
     for word in syn_emb_ep1.vocab:
+        if len(similarities_differences_words) > 20:
+            break
         if is_in_all_vocabs(word, [syn_emb_ep1, syn_emb_ep2, sem_emb_ep1, sem_emb_ep2]):
             syn_similarities = cosine_sim(syn_emb_ep1[word], syn_emb_ep2.vectors)
             # Get the indices where the similarities fulfill the condition in syntactic space
