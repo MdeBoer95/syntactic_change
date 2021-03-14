@@ -104,7 +104,7 @@ def filter_by_mincount(embeddings: KeyedVectors, min_count):
     return filtered
 
 
-def biggest_change_words(embeddings_epoch1, embeddings_epoch2):
+def biggest_change_words(embeddings_epoch1, embeddings_epoch2, num_words=50):
     similarities = {}
     cosine_sim = embeddings_epoch1.cosine_similarities
     for word in embeddings_epoch1.vocab:
@@ -113,7 +113,7 @@ def biggest_change_words(embeddings_epoch1, embeddings_epoch2):
             similarities[word] = (similarity[0], embeddings_epoch1.vocab[word].count, embeddings_epoch2.vocab[word].count)
 
     similarities_sorted = sorted(similarities, key=lambda word: similarities[word][0])
-    return similarities_sorted
+    return similarities_sorted[:num_words]
 
 
 def is_in_all_vocabs(word, listofkv):
@@ -184,24 +184,28 @@ if __name__ == '__main__':
     MIN_LENGTH = 4
 
     # Load Syntactic Embeddings
-    syn_path_epoch1617 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/wang2vec/1617_emb_cleaned_v2_largedict_mapped.txt"
+    syn_path_epoch1617 = "/home/marcel/Schreibtisch/models_tmp/1600-1700/wang2vec/1617_emb_cleaned_v2_largedict_mapped.txt"
     syn_emb1617 = KeyedVectors.load_word2vec_format(syn_path_epoch1617, binary=False)
-    syn_path_epoch1819 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/wang2vec/1819_emb_cleaned_v2_largedict_mapped.txt"
+    syn_path_epoch1819 = "/home/marcel/Schreibtisch/models_tmp/1800-1900/wang2vec/1819_emb_cleaned_v2_largedict_mapped.txt"
     syn_emb1819 = KeyedVectors.load_word2vec_format(syn_path_epoch1819, binary=False)
 
     # Load Semantic Embeddings
-    sem_path_epoch1617 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1600-1700/word2vec/1617_emb_cleaned_v2_largedict_mapped.txt"
+    sem_path_epoch1617 = "/home/marcel/Schreibtisch/models_tmp/1600-1700/word2vec/1617_emb_cleaned_v2_largedict_mapped.txt"
     sem_emb1617 = KeyedVectors.load_word2vec_format(sem_path_epoch1617, binary=False)
-    sem_path_epoch1819 = "/ukp-storage-1/deboer/Language-change/german/embedding_change/1800-1900/word2vec/1819_emb_cleaned_v2_largedict_mapped.txt"
+    sem_path_epoch1819 = "/home/marcel/Schreibtisch/models_tmp/1800-1900/word2vec/1819_emb_cleaned_v2_largedict_mapped.txt"
     sem_emb1819 = KeyedVectors.load_word2vec_format(sem_path_epoch1819, binary=False)
 
     load_word_counts(sem_path_epoch1617.replace('_largedict_mapped.txt', '.model'), syn_emb1617, sem_emb1617)
     load_word_counts(sem_path_epoch1819.replace('_largedict_mapped.txt', '.model'), syn_emb1819, sem_emb1819)
 
+    print(str(len(syn_emb1617.vocab)) + '\n')
+
     syn_emb1617 = filter_by_mincount(syn_emb1617, MIN_COUNT)
     syn_emb1819 = filter_by_mincount(syn_emb1819, MIN_COUNT)
     sem_emb1617 = filter_by_mincount(sem_emb1617, MIN_COUNT)
     sem_emb1819 = filter_by_mincount(sem_emb1819, MIN_COUNT)
+
+    print(str(len(syn_emb1617.vocab)) + '\n')
 
     if RESULTS_SPACE == 'sem':
         combined_embeddings = merge_mapped_embeddings2([sem_emb1617, sem_emb1819], modifiers=[" (1600)", " (1800)"])
@@ -213,6 +217,7 @@ if __name__ == '__main__':
     changed_words = biggest_change_words(syn_emb1617, syn_emb1819)
 
     with open('/home/marcel/Schreibtisch/biggest_change.txt', 'w') as f:
+        f.write("###Results space: " + RESULTS_SPACE + '\n')
         for word in changed_words:
             if len(word) >= MIN_LENGTH:
                 f.write(word + '\n')
@@ -222,6 +227,7 @@ if __name__ == '__main__':
                                                       syn_threshold=0.3, sem_threshold=0.5)
 
     with open('/home/marcel/Schreibtisch/syn_sem_change.txt', 'w') as f:
+        f.write("###Results space: " + RESULTS_SPACE + '\n')
         for word in changed_words_sym_sem:
             if len(word) >= MIN_LENGTH:
                 f.write(word + '\n')
@@ -230,6 +236,7 @@ if __name__ == '__main__':
     words_ab = find_abitrary_words_with_similarity(syn_emb1617, syn_emb1819, sem_emb1617, sem_emb1819, sem_threshold=0.5, syn_threshold=0.5)
 
     with open("/home/marcel/Schreibtisch/abr_syn_sem.txt", 'w') as f:
+        f.write("###Results space: " + RESULTS_SPACE + '\n')
         for word_a, word_b in words_ab:
             f.write("word A: " + word_a + '\n')
             f.write("NNs" + str(combined_embeddings.most_similar(positive=[word_a + " (1600)"], topn=10)) + '\n')

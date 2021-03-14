@@ -1,0 +1,76 @@
+###Results space: syn
+waitz
+Word:waitz (1600)['waitz (1600)', 'hirsen (1600)', 'hopffen (1600)', 'habern (1600)', 'waitzen (1600)', 'hanff (1600)', 'raps (1800)', 'getrayd (1600)', 'wicken (1600)', 'karpfen (1600)', 'buchweizen (1800)']
+Word:waitz (1800)['waitz (1800)', 'vg (1800)', 'zachariä (1800)', 'zöpfl (1800)', 'rg (1800)', 'flg (1800)', 'richthofen (1800)', 'binding (1800)', 'klüber (1800)', 'brunner (1800)', 'bde (1800)']
+vene
+Word:vene (1600)['vene (1600)', 'flo (1600)', 'co (1600)', 'lu (1600)', 'duc (1800)', 'vin (1600)', 'por (1800)', 'augu (1600)', 'car (1600)', 'ora (1600)', 'lettere (1800)']
+Word:vene (1800)['vene (1800)', 'arterie (1800)', 'ventrikel (1800)', 'gefässschicht (1800)', 'herzkammer (1600)', 'lamelle (1800)', 'schleimhaut (1800)', 'darmes (1800)', 'stimmritze (1800)', 'faser (1600)', 'luftröhre (1800)']
+here
+Word:here (1600)['here (1600)', 'genauere (1600)', 'nähere (1800)', 'genauere (1800)', 'befriedigende (1800)', 'fortgesetzte (1600)', 'weitere (1600)', 'ausführliche (1600)', 'bestimmtere (1800)', 'chronologische (1800)', 'fernere (1600)']
+Word:here (1800)['here (1800)', 'barl (1800)', 'flore (1800)', 'tor (1800)', 'lant (1800)', 'gloria (1600)', 'gloria (1800)', 'tât (1800)', 'tus (1800)', 'lux (1800)', 'fir (1800)']
+basen
+Word:basen (1600)['basen (1600)', 'freundinnen (1600)', 'onkels (1600)', 'montague (1600)', 'tante (1600)', 'lords (1600)', 'sinclair (1600)', 'hervey (1600)', 'norton (1600)', 'freundinn (1600)', 'base (1600)']
+Word:basen (1800)['basen (1800)', 'salze (1800)', 'membranen (1800)', 'häute (1800)', 'papillen (1800)', 'blutkörperchen (1800)', 'grundmasse (1800)', 'poren (1800)', 'fasern (1800)', 'flüssigkeiten (1800)', 'krystallisiren (1800)']
+mons
+Word:mons (1600)['mons (1600)', 'jean (1600)', 'louis (1800)', 'victor (1800)', 'marchese (1800)', 'schott (1600)', 'jean (1800)', 'augustin (1800)', 'monsieur (1600)', 'graf (1800)', 'roy (1600)']
+Word:mons (1800)['mons (1800)', 'ker (1800)', 'hrab (1800)', 'cädm (1800)', 'doc (1800)', 'unga (1800)', 'îc (1800)', 'boeth (1800)', 'beov (1800)', 'fram (1800)', 'bth (1800)']
+beßer
+Word:beßer (1600)['beßer (1600)', 'ernsthafter (1600)', 'schlimmer (1600)', 'froher (1600)', 'kühner (1600)', 'theurer (1600)', 'ruhiger (1600)', 'glücklicher (1600)', 'schüchtern (1600)', 'hundertmal (1600)', 'länger (1600)']
+Word:beßer (1800)['beßer (1800)', 'rask (1800)', 'uo (1800)', 'villeicht (1800)', 'auslautend (1800)', 'ia (1800)', 'inlautend (1800)', 'biörn (1800)', 'unorganisch (1800)', 'hodie (1600)', 'lîh (1800)']
+star
+Word:star (1600)['star (1600)', 'heff (1600)', 'telma (1600)', 'starcken (1600)', 'mittelma (1600)', 'überma (1600)', 'gefra (1600)', 'unma (1600)', 'scharffen (1600)', 'rau (1600)', 'kal (1600)']
+Word:star (1800)['star (1800)', 'pur (1800)', 'lux (1800)', 'trev (1800)', 'sus (1800)', 'fine (1800)', 'flore (1800)', 'wigal (1800)', 'dor (1800)', 'blas (1800)', 'fir (1800)']
+prov
+Word:prov (1600)['prov (1600)', 'ezech (1600)', 'amos (1600)', 'psal (1600)', 'syrach (1600)', 'esa (1600)', 'ruffet (1600)', 'luc (1600)', 'jerem (1600)', 'sap (1600)', 'ephes (1600)']
+Word:prov (1800)['prov (1800)', 'rh (1800)', 'metz (1800)', 'meiningen (1800)', 'bogislai (1600)', 'neustadt (1800)', 'georgen (1600)', 'pet (1800)', 'schwerin (1800)', 'octobr (1600)', 'dez (1800)']
+stat
+Word:stat (1600)['stat (1600)', 'statt (1600)', 'anstatt (1800)', 'stelle (1600)', 'stelle (1800)', 'statt (1800)', 'ende (1600)', 'mitte (1800)', 'befestigung (1800)', 'ende (1800)', 'aufnahme (1800)']
+Word:stat (1800)['stat (1800)', 'staat (1800)', 'staat (1600)', 'state (1800)', 'gemeinwesen (1800)', 'staatsbürger (1800)', 'staate (1600)', 'sittlichkeit (1800)', 'staate (1800)', 'wucher (1800)', 'gesetzgeber (1800)']
+niger
+Word:niger (1600)['niger (1600)', 'nigen (1600)', 'nige (1600)', 'nigstens (1600)', 'nig (1600)', 'rer (1600)', 'ndiger (1600)', 'ltiger (1600)', 'nigsten (1600)', 'manden (1600)', 'glicher (1600)']
+Word:niger (1800)['niger (1800)', 'mare (1800)', 'inn (1800)', 'ui (1800)', 'sus (1800)', 'ntr (1800)', 'jug (1800)', 'mori (1800)', 'tres (1600)', 'mare (1600)', 'fir (1800)']
+darauß
+Word:darauß (1600)['darauß (1600)', 'daraus (1600)', 'worauß (1600)', 'hierauß (1600)', 'dardurch (1600)', 'drauß (1600)', 'darmit (1600)', 'darauff (1600)', 'darvon (1600)', 'darein (1600)', 'draus (1600)']
+Word:darauß (1800)['darauß (1800)', 'dha (1800)', 'femin (1800)', 'altindisch (1800)', 'jans (1800)', 'sva (1800)', 'jâ (1800)', 'masi (1800)', 'perf (1800)', 'altbaktr (1800)', 'âs (1800)']
+villeicht
+Word:villeicht (1600)['villeicht (1600)', 'zwarn (1600)', 'habest (1600)', 'gewißlich (1600)', 'dessenthalben (1600)', 'wärst (1800)', 'brauchst (1800)', 'hättest (1800)', 'fürwahr (1600)', 'fürwahr (1800)', 'jemahlen (1600)']
+Word:villeicht (1800)['villeicht (1800)', 'ebenfals (1800)', 'warscheinlich (1800)', 'tva (1800)', 'plur (1800)', 'altindisch (1800)', 'perfectum (1800)', 'darauß (1800)', 'jâ (1800)', 'nt (1800)', 'ia (1800)']
+gallen
+Word:gallen (1600)['gallen (1600)', 'colica (1600)', 'seitenstechen (1600)', 'harn (1600)', 'gelbsucht (1600)', 'geschwüre (1600)', 'durchlauff (1600)', 'schleim (1600)', 'ruhr (1600)', 'gicht (1600)', 'wassersüchtigen (1600)']
+Word:gallen (1800)['gallen (1800)', 'salzburg (1800)', 'erfurt (1800)', 'ulm (1600)', 'tirol (1800)', 'koburg (1800)', 'triest (1800)', 'neustadt (1800)', 'eisenach (1800)', 'straßburg (1800)', 'georgen (1600)']
+brauen
+Word:brauen (1600)['brauen (1600)', 'kaufen (1600)', 'füttern (1600)', 'verkauf (1600)', 'anschaffen (1600)', 'verkaufen (1600)', 'kauffen (1600)', 'verkauffen (1600)', 'hafer (1600)', 'pflügen (1600)', 'verkauff (1600)']
+Word:brauen (1800)['brauen (1800)', 'locken (1800)', 'wimpern (1800)', 'schnurrbart (1800)', 'köpfchen (1800)', 'schleyer (1600)', 'funkelnden (1800)', 'weste (1800)', 'hute (1800)', 'wangen (1600)', 'blonden (1800)']
+ware
+Word:ware (1600)['ware (1600)', 'war (1600)', 'war (1800)', 'seye (1600)', 'gewest (1600)', 'geweßt (1600)', 'wardt (1600)', 'wurd (1600)', 'kame (1600)', 'were (1600)', 'forderist (1600)']
+Word:ware (1800)['ware (1800)', 'kohlen (1800)', 'luppe (1800)', 'lauge (1600)', 'lauge (1800)', 'spülen (1800)', 'seife (1800)', 'garne (1800)', 'laugen (1600)', 'küpe (1800)', 'kohle (1800)']
+winck
+Word:winck (1600)['winck (1600)', 'wink (1800)', 'gruß (1800)', 'wink (1600)', 'verweiß (1600)', 'abtrit (1600)', 'rath (1800)', 'gaste (1800)', 'winke (1800)', 'anerbieten (1800)', 'bescheid (1600)']
+Word:winck (1800)['winck (1800)', 'lippert (1800)', 'raspe (1800)', 'cades (1800)', 'stosch (1800)', 'bracci (1800)', 'ebenda (1800)', 'clarac (1800)', 'gori (1800)', 'canino (1800)', 'hermes (1800)']
+adams
+Word:adams (1600)['adams (1600)', 'toden (1600)', 'verdamten (1600)', 'adam (1600)', 'sathans (1600)', 'abrahams (1600)', 'eva (1600)', 'außerwehlten (1600)', 'mensche (1600)', 'glaubigen (1600)', 'menschen (1600)']
+Word:adams (1800)['adams (1800)', 'rapp (1800)', 'stephan (1800)', 'günther (1800)', 'stolberg (1800)', 'koburg (1800)', 'frantz (1600)', 'kronprinz (1800)', 'columbus (1800)', 'francis (1800)', 'adolph (1600)']
+ebenfals
+Word:ebenfals (1600)['ebenfals (1600)', 'gleichfals (1600)', 'ebenfalls (1600)', 'ebenfalls (1800)', 'gleichfalls (1600)', 'nachhero (1600)', 'nunmehro (1600)', 'gemeiniglich (1600)', 'grösstentheils (1800)', 'gleichergestalt (1600)', 'wiederum (1800)']
+Word:ebenfals (1800)['ebenfals (1800)', 'villeicht (1800)', 'warscheinlich (1800)', 'denung (1800)', 'plur (1800)', 'perfectum (1800)', 'suffixe (1800)', 'inlautend (1800)', 'jâ (1800)', 'darauß (1800)', 'nt (1800)']
+schiene
+Word:schiene (1600)['schiene (1600)', 'schien (1800)', 'kunnte (1600)', 'mochte (1800)', 'schien (1600)', 'ahnte (1800)', 'glaubte (1800)', 'wünschte (1800)', 'vermochte (1600)', 'wähnte (1800)', 'meinte (1600)']
+Word:schiene (1800)['schiene (1800)', 'walze (1800)', 'klinke (1800)', 'spindel (1800)', 'bohrer (1800)', 'schraube (1800)', 'bohrstange (1800)', 'stange (1800)', 'schneide (1800)', 'kolbenstange (1800)', 'bohrung (1800)']
+bischoff
+Word:bischoff (1600)['bischoff (1600)', 'bischof (1800)', 'keyser (1600)', 'schoff (1600)', 'cantzler (1600)', 'graff (1600)', 'erzbischof (1800)', 'markgraf (1800)', 'burgermeister (1600)', 'pabst (1600)', 'cardinal (1600)']
+Word:bischoff (1800)['bischoff (1800)', 'meckel (1800)', 'rathke (1800)', 'baer (1800)', 'reichert (1800)', 'virchow (1800)', 'kölliker (1800)', 'osiander (1800)', 'wagner (1800)', 'remak (1800)', 'oken (1800)']
+berger
+Word:berger (1600)['berger (1600)', 'hartmann (1600)', 'iiii (1600)', 'elem (1600)', 'mery (1600)', 'med (1600)', 'physiol (1600)', 'instit (1600)', 'libr (1600)', 'philos (1600)', 'exerc (1600)']
+Word:berger (1800)['berger (1800)', 'sander (1800)', 'krüger (1800)', 'voigt (1800)', 'hofrath (1800)', 'alvensleben (1800)', 'leopold (1800)', 'rudolph (1800)', 'lothar (1800)', 'theodor (1800)', 'platen (1800)']
+romans
+Word:romans (1600)['romans (1600)', 'vierdes (1600)', 'diebs (1600)', 'fünftes (1600)', 'drittes (1600)', 'historien (1600)', 'sechstes (1600)', 'wette (1800)', 'lu (1600)', 'rabbi (1800)', 'mademoiselle (1800)']
+Word:romans (1800)['romans (1800)', 'dichters (1800)', 'schülers (1800)', 'lehrers (1600)', 'malers (1800)', 'schriftstellers (1800)', 'zeitalters (1800)', 'zeitalters (1600)', 'künstlers (1800)', 'gemäldes (1800)', 'meisters (1800)']
+aufgab
+Word:aufgab (1600)['aufgab (1600)', 'tabelle (1600)', 'diuision (1600)', 'lehrsatz (1600)', 'versuchsreihe (1800)', 'vorbereitung (1600)', 'subtraction (1600)', 'reduction (1600)', 'archimedis (1600)', 'columne (1800)', 'lehrsatzes (1600)']
+Word:aufgab (1800)['aufgab (1800)', 'fortsetzte (1800)', 'abging (1800)', 'oblag (1800)', 'zurückzog (1800)', 'einging (1800)', 'aufzugeben (1800)', 'annahm (1600)', 'anschloß (1800)', 'vertauschte (1800)', 'niederzulegen (1800)']
+dises
+Word:dises (1600)['dises (1600)', 'diß (1600)', 'dise (1600)', 'dieses (1600)', 'diser (1600)', 'disem (1600)', 'dieses (1800)', 'solches (1600)', 'das (1600)', 'deß (1600)', 'vil (1600)']
+Word:dises (1800)['dises (1800)', 'sja (1800)', 'altindischen (1800)', 'suffixes (1800)', 'litauisch (1800)', 'diser (1800)', 'plur (1800)', 'endung (1800)', 'jâ (1800)', 'ia (1800)', 'msc (1800)']
+gest
+Word:gest (1600)['gest (1600)', 'dest (1600)', 'ssest (1600)', 'wiltu (1600)', 'meinst (1800)', 'wilst (1600)', 'hilf (1800)', 'wolltest (1800)', 'darffst (1600)', 'machst (1800)', 'ncket (1600)']
+Word:gest (1800)['gest (1800)', 'oktbr (1800)', 'septbr (1800)', 'bogislai (1600)', 'prov (1800)', 'pseud (1800)', 'novbr (1800)', 'dezbr (1800)', 'mart (1600)', 'eberhard (1600)', 'melchior (1600)']

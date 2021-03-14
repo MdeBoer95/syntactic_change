@@ -96,12 +96,18 @@ The dictionary can be created with the function *create_dict* in ```utils/word2v
 In order to analyze the embedding spaces the script ```analyze_embeddings.py```.
 The global parameters are defined at the start of the main method and can be changed as required. 
 (Paths to embeddings, min count, etc.)
+The parameter *RESULTS_SPACE* whether the outputs will be in semantic or in syntatic space.
 
 The script outputs 3 files:
 
-1. The words with the largest syntactic change between two epochs (file: ...)
+(examples can be found in the folder ```analyze_embeddings_outputs_expl```)
+
+1. The n syntactically most changed words between two epochs.The output file excludes words that are shorter than MIN_LENGTH
+   n defaults to 50. (file: biggest_change.txt)
+   The output shows the word and its nearest neighbours in the *RESULT_SPACE* in both epochs (1600 = 1600-1700, 1800=1800-1900)
 2. Words the have changed semantically less than a certain threshold and syntactically more than a certain threshold. 
    the threshold can be set in the code (see function *syntactic_semantic_change*). (file: syn_sem_change.txt)
+   The output has the same format as in **1.**
 3. Two arbitrary words that fulfill the following criteria: (file: abr_syn_sem.txt)
      - semantic similarity > sem_threshold
      - |syntactic similariy| < syn_threshold

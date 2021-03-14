@@ -1,0 +1,7 @@
+###Results space: syn
+such
+Word:such (1600)['such (1600)', 'hoffte (1800)', 'hoffte (1600)', 'hoff (1800)', 'bothen (1600)', 'erbot (1600)', 'beschloß (1800)', 'auftrag (1600)', 'wünsch (1600)', 'hofte (1600)', 'suchte (1600)']
+Word:such (1800)['such (1800)', 'then (1800)', 'he (1800)', 'than (1800)', 'from (1800)', 'has (1800)', 'by (1800)', 'to (1800)', 'have (1800)', 'with (1800)', 'bring (1800)']
+vorgebildet
+Word:vorgebildet (1600)['vorgebildet (1600)', 'fürgestellet (1600)', 'benamset (1600)', 'entworffen (1600)', 'præsentirt (1600)', 'angedeutet (1600)', 'abgemahlet (1600)', 'dargestellet (1600)', 'außgesprochen (1600)', 'geoffenbaret (1600)', 'bestetiget (1600)']
+Word:vorgebildet (1800)['vorgebildet (1800)', 'veranstaltet (1600)', 'ansässig (1800)', 'abgegangen (1600)', 'dresden (1600)', 'übergesiedelt (1800)', 'gewirkt (1800)', 'breslau (1800)', 'wiesbaden (1800)', 'angehörte (1800)', 'münchen (1800)']
