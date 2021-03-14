@@ -112,4 +112,12 @@ The script outputs 3 files:
      - semantic similarity > sem_threshold
      - |syntactic similariy| < syn_threshold
      - word a is from epoch 1 and word b is from epoch 2
-
+    
+## Test for Syntactic Word Embeddings
+A test for syntactic word embeddings can be run with the file ```analogy_test.txt```.
+For example:
+```commandline
+python analogy_test.py /storage/nllg/compute-share/deboer/melvin/language_change/Language-change/german/embedding_change/1600-1700/word2vec/1617_emb_cleaned_mapped.txt 
+```
+The test also produces an output file named *analogy_test.txt* to show which tests failed. Delete or rename the file is you run the test multiple
+times, otherwise the test will append more output to the same file.
